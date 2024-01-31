@@ -1,0 +1,63 @@
+.titre_tav{
+    text-align: center;
+    color: #EFE7DA;
+    font-family: "Pica SC";
+    font-size: 45px;
+    font-weight: 600;
+    margin: 10vh;
+}
+.para_tav{
+    text-align: center;
+    color: #EFE7DA;
+    margin-top: 0px;
+    height: 20vh;
+    font-family: "Lancelot";
+    font-size: 1.7em;
+    margin-bottom: 6vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+/* card scenario */
+.noConn{
+    text-align: center;
+    color: #EFE7DA;
+    font-family: "Lancelot";
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 5vh;
+    margin-bottom: 16vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+.card_scenar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 15%;
+    margin: 20vh 30vh;
+}
+.img_scenar{
+    height: 54vh;
+    justify-self: center;
+    margin-bottom: 8vh;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10);
+}
+.img_scenar:hover{
+    transition: 718ms;
+    transform:scale(1.2);
+    opacity: 0.5;
+}
+.en_cours{
+    height: 54vh;
+    justify-self: center;
+    margin-bottom: 8vh;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10);
+}
+.connTav{
+    text-decoration: none;
+    color: #e55812;
+}
+.connTav:hover{
+    color: rgba(149, 198, 35, 1);
+}

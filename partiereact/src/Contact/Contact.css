@@ -1,0 +1,64 @@
+.titre_c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #E55812;
+    font-family: "Pica SC";
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 2vh;
+    margin-top: 7vh;
+}
+.texte_contact{
+    text-align: center;
+    color: #EFE7DA;
+    margin-top: 0px;
+    font-family: "Lancelot";
+    font-size: 24px;
+    margin-bottom: 2vh;
+}
+.formulaire{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #EFE7DA;
+    max-width: 30%;
+    margin: auto auto 100px auto;
+    border-radius: 40px;
+    padding: 20px;
+    font-family: "Pica SC";
+    font-size: larger;
+}
+.btn_contact{
+    border-radius: 20px;
+    height: 4vh;
+    width: 8vw;
+    font-size: larger;
+    font-family: "Pica SC";
+    background-color: rgba(149, 198, 35, 1);
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.50);
+    cursor: pointer;
+    transition: 718ms;
+    transform: translateY(0);
+}
+.btn_contact:hover{
+    background-color: #e55812;
+    color: #efe7da;
+    transition: 718ms;
+    transform: translateY(-8px);
+    box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10);
+}
+#nom, #email, #sujet{
+    border-radius: 20px;
+    width: 13vw;
+    height: 4vh;
+    padding: 5px;
+}
+#message{
+    border-radius: 20px;
+    width: 20vw;
+    padding: 5px;
+}

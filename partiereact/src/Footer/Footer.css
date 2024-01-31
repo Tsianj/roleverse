@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0e4749;
+  height: 14vh;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.p_footer {
+  font-family: "Pica SC";
+  margin-right: 1.5vh; /* 8px */
+  color: #e55812;
+  font-size: 18px;
+}
+.copyright{ 
+  width: 1.3vw; /* 20 px à la base */
+  height: 2vh; /* 20 px à la base */
+  margin-right: 1vh; /* 5px à la base */
+}

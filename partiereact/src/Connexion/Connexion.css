@@ -1,0 +1,230 @@
+/* Réinitialisation des styles et définition de la police par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "veteran_typewriter";
+    
+  }
+  /* Styles pour le corps de la page */
+  .body {
+    background-color: #002626;
+    background: linear-gradient(to right, #002626, #002626);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  h1{
+    font-family: "Pica SC";
+  }
+  /* Styles pour le conteneur principal */
+  .container {
+    background-color: #efe7da;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    width: 768px;
+    max-width: 100vw;/* Limite la largeur maximale du conteneur origine 100%*/
+    min-height: 550px;
+  }
+  .titre-form{
+    color: #efe7da;
+  }
+  /* Styles pour les paragraphes */
+  .container p {
+    font-family: "Lancelot";
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+  }
+  .container span {
+    font-size: 12px;
+  }
+  /* Styles pour les liens */
+  .container a {
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+  }
+  /* Styles pour les boutons */
+  .container button {
+    /* Couleurs et styles de bouton */
+    background-color: rgba(149, 198, 35, 1);
+    color: #efe7da;
+    font-family: "Lancelot";
+    font-size: 14px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .container button.hidden {
+    background-color: transparent;
+    border-color: rgba(149, 198, 35, 1);
+  }
+  /* Styles pour le formulaire */
+  .container form {
+    background-color: #efe7da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px; /* Réduit la marge pour les écrans plus petits origine 0 40px*/
+    height: 100%;
+  }
+  /* Styles pour les champs de saisie */
+  .container input {
+    background-color: #fff;
+    border: none;
+    margin: 5px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+  }
+  /* Styles pour le conteneur de formulaire */
+  .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+  }
+  /* Styles pour le formulaire de connexion */
+  .sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+  }
+  /* Styles pour le formulaire d'inscription */
+  .container.active .sign-in {
+    transform: translateX(100%);
+  }
+  /* Styles pour le formulaire d'inscription (inactive) */
+  .sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+  }
+  /* Styles pour le formulaire d'inscription actif */
+  .container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+  }
+  /* Animation de transition pour les formulaires */
+  @keyframes move {
+    0%,
+    49.99% {
+      opacity: 0;
+      z-index: 1;
+    }
+    50%,
+    100% {
+      opacity: 1;
+      z-index: 5;
+    }
+  }
+  /* Styles pour le conteneur de bascule */
+  .toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 100;
+  }
+  /* Styles pour le conteneur de bascule en mode actif */
+  .container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+  }
+  /* Styles pour le panneau de bascule */
+  .toggle {
+    background-color: #002626;
+    height: 100%;
+    background: linear-gradient(to right,#002626, #0e4749, #002626);
+    color: #efe7da;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+  }
+  /* Styles pour le panneau de bascule en mode actif */
+  .container.active .toggle {
+    transform: translateX(50%);
+  }
+  /* Styles pour les panneaux de bascule */
+  .toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+  }
+  /* Styles pour le panneau de bascule à gauche (connexion) */
+  .toggle-left {
+    transform: translateX(-200%);
+  }
+  /* Styles pour le panneau de bascule à gauche en mode actif */
+  .container.active .toggle-left {
+    transform: translateX(0);
+  }
+  /* Styles pour le panneau de bascule à droite (inscription) */
+  .toggle-right {
+    right: 0;
+    transform: translateX(0);
+  }
+  /* Styles pour le panneau de bascule à droite en mode actif */
+  .container.active .toggle-right {
+    transform: translateX(200%);
+  }
+  .radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .radio label {
+    margin: 0 5px;
+  }
+  .sign-in > form > p {
+    display: flex;
+    align-self: flex-start;
+    margin-left: 14px;
+    font-size: 10px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin-top: -10px;
+  }
+  .sign-up > form > p {
+      display: flex;
+      align-self: flex-start;
+      margin-left: 14px;
+      font-size: 10px;
+      line-height: 20px;
+      letter-spacing: 0.3px;
+      margin-top: -10px;
+    }

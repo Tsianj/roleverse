@@ -1,0 +1,56 @@
+.titre_q{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7vh;
+}
+.p_titre{
+  color: #EFE7DA;
+  font-family: "Pica SC";
+  font-size: 45px;
+  font-weight: 600;
+}
+.container_q{
+    display: flex;
+    flex-direction: column;
+  }
+  /* haut */
+  .haut{
+    display: flex;
+    align-items: center;
+    margin-left: 230px;
+    margin-right: 230px;
+    margin-bottom: 10px;
+  }
+.img_haut{
+    width: 50%;
+    height: 65vh;
+}
+.para_droite {
+    color: #EFE7DA;
+    text-align: center;
+    font-family: "Lancelot";
+    font-size: 24px;
+    margin-left: 15px;
+  }
+
+  /* bas */
+.bas{
+    display: flex;
+    align-items: center;
+    margin-left: 230px;
+    margin-right: 230px;
+    margin-bottom: 50px;
+}
+.img_bas{
+    width: 50%;
+    height: 50vh;
+}
+.para_gauche {
+    width: 45%;
+    color: #EFE7DA;
+    text-align: center;
+    font-family: "Lancelot";
+    font-size: 24px;
+    margin-right: 15px;
+  }
