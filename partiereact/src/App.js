@@ -13,6 +13,7 @@ import ScrollToTop from './Components/ScrollToTop';
 import Taverne from './Taverne/Taverne';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Scenario from './Scenario/Scenario';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(Auth.isAuthenticated());
@@ -29,9 +30,11 @@ function App() {
           <Route path={'/contact'} element={<Contact />} />
           <Route path={'/connexion'} element={<Connexion />} />
           <Route path={'/taverne'} element={<Taverne />} />
+          <Route path={'/scenarios/:id'} element={<Scenario />} />
         </Routes>
-      <ToastContainer />
         <Footer />
+      <ToastContainer />
+        
       </BrowserRouter>
       </AuthContext.Provider>
   );

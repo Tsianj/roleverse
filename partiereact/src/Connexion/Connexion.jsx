@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import Auth from "../Services/Auth";
 import AuthContext from "../Components/AuthContext";
 import "./Connexion.css";
-import utilisateurService from "./utilisateurService";
+import utilisateurService from "../Services/utilisateurService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 

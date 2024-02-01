@@ -1,16 +1,28 @@
-import { React, useContext, useState } from 'react';
+import { React, useContext, useEffect, useState } from 'react';
 import "./Taverne.css";
-import scenario1 from "../assets/scenario1.png";
-import scenario2 from "../assets/Dragon.png";
 import prochainement from "../assets/Prochainement1.png"
 import { Link } from "react-router-dom";
-import Image from './taverneService';
+import taverneService from '../Services/taverneService';
 import AuthContext from "../Components/AuthContext";
 import Auth from "../Services/Auth";
 
 const Taverne = () => {
     const { isAuthenticated, setIsAuthenticated, user } = useContext(AuthContext);
-    const [images, setImages] = useState();
+    const [scenarios, setScenarios] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await taverneService.fetchScenario();
+          console.log(response);
+          setScenarios(response.data);
+        } catch (error) {
+          console.error("Erreur lors de la récupération des scénarios :", error);
+        }
+      };
+  
+      fetchData();
+    }, []);
 
     return ( <div  className='taverne'>
         <div className='tav'>
@@ -23,8 +35,20 @@ const Taverne = () => {
         <div className='noConn'>Nous comprenons que tu es pressé de partir à l'aventure, mais avant 
         <Link to={"/connexion"} className='connTav'> connecte toi</Link> et nous serons ravis de te présenter nos scénarios.</div> :
         <div className='card_scenar'>
-            <img src={scenario1} alt="image scénario" className='img_scenar' />
-            <img src={scenario2} alt="image scénario" className='img_scenar' />
+          {scenarios.map((scenario) => (
+            <Link to={`/scenarios/${scenario.SC_ID}`} key={scenario.SC_ID} className="img-container">
+              <img
+                src={"../Assets/" + scenario.SC_Img}
+                alt={`image scénario ${scenario.SC_Nom}`}
+                className="img-scenar"
+              />
+              <p className="card-resume">
+                <span className="nom-resume">{scenario.SC_Nom}</span>
+                <br />
+                <span className="resume">{scenario.SC_Resume}</span>
+              </p>
+            </Link>
+            ))}
             <img src={prochainement} alt="prochainement" className='en_cours' />
             <img src={prochainement} alt="prochainement" className='en_cours' />
         </div>

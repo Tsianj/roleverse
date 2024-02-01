@@ -1,0 +1,75 @@
+.titre_scenar {
+  text-align: center;
+  color: #efe7da;
+  font-family: "Pica SC";
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: 12vh;
+  margin-bottom: 0;
+}
+.scenar_container {
+  position: relative;
+  height: auto;
+  margin: 5vh 30vh 20vh 30vh;
+}
+.scenar_container img {
+  height: 60vh;
+  float: left;
+  margin-right: 5vh;
+}
+.scenar_container p {
+  text-align: justify;
+  color: #efe7da;
+  font-family: "Lancelot";
+  font-size: 1.7em;
+}
+.btn_scenar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 50px;
+  margin-left: 60%;
+  height: auto;
+}
+#btn_game {
+  width: 15vw;
+  border-radius: 40px;
+  padding: 2vh;
+  background-color: rgba(149, 198, 35, 1);
+  color: #000;
+  font-family: "Pica SC";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 718ms;
+  transform: translateY(0);
+}
+#btn_game:hover {
+  background-color: #e55812;
+  color: #efe7da;
+  transition: 718ms;
+  transform: translateY(-8px);
+  box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.1);
+}
+
+.btn_retour {
+  margin-left: 3vh;
+  color: #efe7da;
+  font-family: "Pica SC";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  transition: 718ms;
+  transform: translateY(0);
+}
+.btn_retour:hover {
+  color: #e55812;
+  transition: 718ms;
+  transform: translateY(-8px);
+}

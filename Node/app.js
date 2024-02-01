@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const utilisateur = require("./modules/utilisateur");
+const scenario = require("./modules/scenario");
 const utilisateurService = require("./services/utilisateurService");
 const app = express();
 const port = 3000;
@@ -28,6 +29,7 @@ app.use(
 );
 
 app.use("/utilisateur", utilisateur);
+app.use("/scenario", scenario);
 app.post("/connexion", (req, res) => {
   let data = req.body;
   console.log(data);

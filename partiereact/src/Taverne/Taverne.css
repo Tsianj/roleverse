@@ -35,20 +35,54 @@
     height: 15%;
     margin: 20vh 30vh;
 }
-.img_scenar{
-    height: 54vh;
-    justify-self: center;
-    margin-bottom: 8vh;
-    cursor: pointer;
-    box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10);
-}
-.img_scenar:hover{
-    transition: 718ms;
-    transform:scale(1.2);
-    opacity: 0.5;
-}
+/* CSS pour les cards */
+.img-container {
+    position: relative;
+    display: inline-block;
+    margin: 30px; /* Ajout de la marge tout autour */
+    transition: transform 0.3s ease-out; /* Ajout de transition */
+    cursor: pointer; /* Curseur pointer au survol de l'image */
+  }
+  
+  .img-scenar {
+    max-width: 100%; /* Assurez-vous que l'image reste dans sa taille originale */
+    display: block;
+    box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10); /* Ajout de l'ombre */
+  }
+  .img-container:hover {
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+  }
+  .card-resume {
+    position: absolute;
+    top: 0; /* Positionne le texte au milieu verticalement */
+    left: 0; /* Positionne le texte au milieu horizontalement */
+    width: 100%; /* Recouvre toute la largeur de l'image */
+    height: 100%; /* Recouvre toute la hauteur de l'image */
+    opacity: 0; /* Initialement invisible */
+    transition: opacity 0.3s ease-in-out; /* Ajoute une transition de fondu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #EFE7DA; /* Couleur du texte */
+    padding: 5%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond noir avec 0.5 d'opacité */
+  }
+  .img-container:hover .card-resume {
+    opacity: 1; /* Lorsque l'utilisateur survole, rend le texte visible */
+  }
+  .nom-resume{
+    font-size: 300%; /* Taille du texte */
+  }
+  .resume {
+    margin: 0;
+    font-size: 170%; /* Taille du texte */
+    font-weight: bold; /* Poids de la police */
+  }
 .en_cours{
-    height: 54vh;
+    height: 48vh;
+    width:  22vw;
     justify-self: center;
     margin-bottom: 8vh;
     cursor: pointer;
