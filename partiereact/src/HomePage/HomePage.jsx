@@ -56,4 +56,3 @@ return (
 )};
 
 export default HomePage;
-   

@@ -6,11 +6,17 @@ import utilisateurService from "../Services/utilisateurService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+const Auth0 = new Auth();
 const Connexion = () => {
   const [isActive, setIsActive] = useState(false);
   const [utilisateur, setUtilisateur] = useState({});
   const navigate = useNavigate();
   const { setUser, setIsAuthenticated } = useContext(AuthContext);
+  // Fonction pour stocker le token dans le stockage local
+  const storeToken = (token) => {
+    localStorage.setItem('authToken', token);
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
     setUtilisateur({ ...utilisateur, [name]: value });
@@ -27,13 +33,13 @@ const Connexion = () => {
           });
           setTimeout(async () => {
             console.log(res);
-            setUser(res.data);
+            setUser(Auth0.getUser());
             setIsAuthenticated(true);
-            Auth.setUser(JSON.stringify(res.data));
+            // Auth.setUser(JSON.stringify(res.data));
             toast.success(
-              "Bienvenu aventurier " +
-                res.data.UT_Nom.charAt(0).toUpperCase() +
-                res.data.UT_Nom.slice(1),
+              "Bienvenu aventurier, ton compte a bien été créé." +
+                res.data.user.UT_Nom.charAt(0).toUpperCase() +
+                res.data.user.UT_Nom.slice(1),
               {
                 position: "bottom-right",
                 autoClose: 5000,
@@ -45,7 +51,8 @@ const Connexion = () => {
                 theme: "colored",
               }
             );
-            navigate("/");
+          // Recharge la page après l'inscription réussie
+          window.location.reload();
           }, 800);
         });
       } catch (e) {
@@ -61,11 +68,14 @@ const Connexion = () => {
     try {
       const response = await utilisateurService.loginUtilisateur(utilisateur);
       setTimeout(() => {
-        setUser(response.data);
+        setUser(Auth0.getUser());
+        console.log(response);
         setIsAuthenticated(true);
-        Auth.setUser(JSON.stringify(response.data));
-        toast.success("Bon retour parmi nous " + response.data.UT_Nom.charAt(0).toUpperCase()
-        + response.data.UT_Nom.slice(1), {
+        // Stocker le token lors de la connexion réussie
+        storeToken(response.data.access_token);
+        // Auth.setUser(JSON.stringify(response.data));
+        toast.success("Bon retour parmi nous " + response.data.user.UT_Nom.charAt(0).toUpperCase()
+        + response.data.user.UT_Nom.slice(1), {
           position: "bottom-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -90,6 +100,16 @@ const Connexion = () => {
       });
     }
   };
+
+  useEffect(() => {
+    // Vérifier la présence d'un token au chargement de la page
+    const storedToken = localStorage.getItem('authToken');
+    if (storedToken) {
+      // Si un token est trouvé, définissez l'utilisateur et l'authentification
+      setUser(Auth0.getUser());
+      setIsAuthenticated(true);
+    }
+  }, []); // Déclenché uniquement lors du montage initial
 
   return (
     <>

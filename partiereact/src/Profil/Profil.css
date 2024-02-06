@@ -1,0 +1,52 @@
+.profil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .profil-card {
+    background-color: #0E4749;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    width: 50vw;
+  }
+
+  .profil-image {
+    margin-bottom: 20px;
+    /* Ajoutez des styles pour l'image du joueur si nécessaire */
+  }
+  
+  .profil-info h2 {
+    margin-bottom: 10px;
+    font-size: 5vh;
+    color: #EFE7DA;
+    font-family: "Pica SC";
+  }
+  
+  .profil-bio, .p-profil {
+    font-size: 16px;
+    color: #EFE7DA;
+    font-family: "Pica SC";
+  }
+  
+  .profil-niveaux {
+    margin-top: 20px;
+  }
+  
+  .profil-niveaux div {
+    margin-bottom: 10px;
+  }
+  
+  .profil-edit {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .edit-icon {
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 5px;
+  }

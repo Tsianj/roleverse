@@ -14,10 +14,14 @@ import Taverne from './Taverne/Taverne';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Scenario from './Scenario/Scenario';
+import Profil from './Profil/Profil';
+
+const Auth0 = new Auth();
+Auth0.setup();
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(Auth.isAuthenticated());
-  const [user, setUser] = useState(JSON.parse(Auth.getUser()));
+  const [isAuthenticated, setIsAuthenticated] = useState(Auth0.isAuthenticated());
+  const [user, setUser] = useState(Auth0.getUser());
 
   return (  <AuthContext.Provider
         value={{isAuthenticated, setIsAuthenticated, user, setUser}}>
@@ -31,6 +35,7 @@ function App() {
           <Route path={'/connexion'} element={<Connexion />} />
           <Route path={'/taverne'} element={<Taverne />} />
           <Route path={'/scenarios/:id'} element={<Scenario />} />
+          <Route path={'/profil'} element={<Profil />} />
         </Routes>
         <Footer />
       <ToastContainer />
