@@ -1,5 +1,5 @@
 import { React, useContext, useEffect, useState } from 'react';
-import "./Scenario.css";
+import "../Styles/Scenario.css";
 import taverneService from "../Services/taverneService";
 import { Link, useParams } from 'react-router-dom';
 

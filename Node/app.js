@@ -106,46 +106,6 @@ app.post("/connexion", (req, res) => {
       res.send({ message: "Vérifiez votre adresse mail et votre mot de passe." });
     });
 });
-// app.post("/connexion", async (req, res) => {
-//   let data = req.body;
-
-//   try {
-//     const existingUser = await utilisateurService.connUtilisateur(data);
-
-//     if (existingUser.length > 0) {
-//       bcrypt.compare(data.passwordsConn, existingUser[0].UT_Password, (err, resultCompare) => {
-//         if (resultCompare) {
-//           const token = jwt.sign({ user: existingUser[0] }, SECRET, { expiresIn: "1 hour" });
-//           res.status(200);
-//           res.json({ access_token: token, user: existingUser[0] });
-//         } else {
-//           res.status(401);
-//           res.json({ message: "Erreur de mot de passe" });
-//         }
-//       });
-//     } else {
-//       bcrypt.hash(data.passwords, 5, (err, hash) => {
-//         if (err) {
-//           res.status(500).send({ message: "Erreur lors du cryptage du mot de passe." });
-//           return;
-//         }
-//         data.passwords = hash;
-
-//         utilisateurService.addUtilisateur(data).then((result) => {
-//           const token = jwt.sign({ user: data }, SECRET, { expiresIn: "1 hour" });
-//           res.status(201);
-//           res.json({ access_token: token, user: data });
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//           res.status(500).send({ message: "Erreur lors de l'ajout de l'utilisateur." });
-//         });
-//       });
-//     }
-//   } catch (err) {
-//     res.status(500).send({ message: "Erreur lors de l'authentification." });
-//   }
-// });
 
 app.post("/mail", (req, res) => {
   const data = req.body;

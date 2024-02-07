@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Contact.css";
+import "../Styles/Contact.css";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,14 +20,39 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
+   e.preventDefault();
     try {
       // Envoyez les données au backend
       await axios.post("http://localhost:3000/mail", formData);
       console.log("Email envoyé avec succès!");
+      toast.success("Email envoyé avec succès!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      setFormData({
+        nom: "",
+        email: "",
+        sujet: "Choisir un option",
+        message: "",
+      });
     } catch (error) {
       console.error("Erreur lors de l'envoi de l'email :", error);
+      toast.error("Le mail n'a pas pu s'envoyer", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 

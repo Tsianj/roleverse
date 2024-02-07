@@ -11,7 +11,6 @@ connection.connect((err) => {
         console.log(err.stack)
         return
     }
-    // console.log(connection.state)
     console.log(connection.threadId)
 })
 

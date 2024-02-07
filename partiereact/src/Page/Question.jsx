@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Question.css";
+import "../Styles/Question.css";
 import imgHaut from "../assets/MJ_jdr.jpg";
 import imgBas from "../assets/background.jpg";
 

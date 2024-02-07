@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
-import './Profil.css';
+import React, { useState, useEffect } from 'react';
+import '../Styles/Profil.css';
+import profilService from '../Services/utilisateurService'
+import { useParams } from 'react-router-dom';
 
 const Profil = () => {
     const [isEditing, setIsEditing] = useState(false);
-    const [pseudo, setPseudo] = useState('Pseudo du joueur');
-    const [bio, setBio] = useState('Description du joueur');
+    const [pseudo, setPseudo] = useState([]);
+    const [bio, setBio] = useState([]);
     const [niveauMJ, setNiveauMJ] = useState(3); // Exemple : niveau initial
     const [niveauJoueur, setNiveauJoueur] = useState(4); // Exemple : niveau initial
-  
+    const { email } = useParams();
+    
+
     const handleEditClick = () => {
       setIsEditing(true);
     };
@@ -34,6 +38,19 @@ const Profil = () => {
         return stars;
     };
 
+    const fetchData = async () => {
+      try {
+        const response = await profilService.fetchUtilisateur(email);
+        console.log(response);
+        setPseudo(response.data[0]);
+      } catch (error) {
+        console.log("Erreur lors de la récupération du pseudo :", error);
+      }}
+      useEffect(() => {
+        fetchData();
+      }, []);
+
+
     return (    
 <div className="profil-container">
       <div className="profil-card">
@@ -46,19 +63,19 @@ const Profil = () => {
               {/* Champs de modification pendant l'édition */}
               <input
                 type="text"
-                value={pseudo}
+                value={pseudo.UT_Nom.charAt(0).toUpperCase() + pseudo.UT_Nom.slice(1)}
                 onChange={(e) => setPseudo(e.target.value)}
-              />
+              /> <br />
               <textarea
-                value={bio}
+                value={bio.UT_Description}
                 onChange={(e) => setBio(e.target.value)}
               />
             </>
           ) : (
             <>
               {/* Affichage normal */}
-              <h2>{pseudo}</h2>
-              <p className="profil-bio">{bio}</p>
+              <h2>Pseudo : {pseudo.UT_Nom}</h2>
+              <p className="profil-bio">Bio : {bio.UT_Description}</p>
             </>
           )}
         </div>

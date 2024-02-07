@@ -27,7 +27,16 @@ router.post("/", (req, res) => {
     })
    
   });
-
+  router.get("/:email", (req, res) => {
+    const email = req.params.email;
+    console.log(email);
+    utilisateurService.fetchUtilisateur(email).then((result) => {
+      res.status(200).json(result);
+    }).catch((err) => {
+      console.error("Oops...", err);
+      res.json({ "message": "Error" + err.sqlMessage });
+    });
+  });
 
 module.exports = router;
 

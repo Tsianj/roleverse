@@ -1,13 +1,16 @@
-import React from 'react';
-import './HomePage.css';
+import React, { useContext } from 'react';
+import '../Styles/HomePage.css';
 import dice from '../assets/Dés_bienvenue.png';
 import jdr from '../assets/JDR.jpg';
 import question from '../assets/JDR_accueil.jpg';
 import taverne from '../assets/Taverne.jpg';
 import { Link } from "react-router-dom";
+import AuthContext from '../Components/AuthContext';
 
 
 const HomePage = () => {
+    const { isAuthenticated, user} =
+    useContext(AuthContext);
 return (
     <div className="container_HP">
         <div className='header'>
@@ -23,7 +26,11 @@ return (
                 </div>
             </div>
             <div className='btn'>
-            <Link to={"/connexion"} className='btn_accueil'>Rejoignez-nous</Link>
+            {isAuthenticated === false ? (
+                <Link to={"/connexion"} className='btn_accueil'>Rejoignez-nous</Link>
+            ):(
+                <Link to={`/profil/${user.UT_Mail}`} className='btn_accueil'>Profil</Link>
+            )} 
             </div>
         </div>
         <div className='question'>

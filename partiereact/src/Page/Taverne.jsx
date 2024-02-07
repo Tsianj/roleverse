@@ -1,5 +1,5 @@
 import { React, useContext, useEffect, useState } from 'react';
-import "./Taverne.css";
+import "../Styles/Taverne.css";
 import prochainement from "../assets/Prochainement1.png"
 import { Link } from "react-router-dom";
 import taverneService from '../Services/taverneService';
