@@ -37,6 +37,8 @@ body {
 }
 .bloc {
   display: flex;
+  /* flex-wrap: wrap;
+  min-width: 800px; */
   flex-direction: row;
   justify-content: center;
 }
@@ -60,8 +62,8 @@ body {
   background: #0e4749;
 }
 .p1 {
-  width: 35vw;
-  height: 15vh;
+  width: auto;
+  height: auto;
   color: #efe7da;
   text-align: center;
   font-family: "Lancelot";
@@ -97,8 +99,8 @@ body {
   background: #0e4749;
 }
 .p2 {
-  width: 28vw;
-  height: 12vh;
+  width: auto;
+  height: auto;
   color: #efe7da;
   text-align: center;
   font-family: "Lancelot";
@@ -134,8 +136,8 @@ body {
   background: #0e4749;
 }
 .p3 {
-  width: 30vw;
-  height: 22vh;
+  width: auto;
+  height: auto;
   color: #efe7da;
   text-align: center;
   font-family: "Lancelot";
@@ -181,7 +183,45 @@ span {
   box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10);
 }
 
-/* @media screen and (max-width: 600px) {
-    .bloc2, .bloc3 {
-        flex-direction: column;
-        } */
+/* Ajoutez une media query pour les écrans de 980px ou moins */
+@media screen and (max-width: 980px) {
+  /* Ajustez le style du header pour les écrans plus petits */
+  .header {
+    height: auto;
+  }
+  .header::before {
+    opacity: 0.5; /* Vous pouvez ajuster l'opacité selon vos préférences */
+  }
+  .dice{
+    width: 80%;
+  }
+
+  /* Ajustez le style des blocs pour les écrans plus petits */
+  .bienvenue, .question, .taverne {
+    margin-top: 15px;
+  }
+  .bloc, .bloc2, .bloc3 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .img1, .img2, .img3 {
+    border-radius: 0;
+    width: 100%;
+  }
+  .texte1, .texte2, .texte3 {
+    border-radius: 0;
+    width: auto;
+  }
+  .p1, .p2, .p3 {
+    /* font-size: 20px; */
+    width: 100%;
+  }
+  span{
+    /* font-size: 20px; */
+    width: 100%;
+  }
+  .btn_accueil {
+    width: 28%;
+    font-size: 100%;
+  }
+}

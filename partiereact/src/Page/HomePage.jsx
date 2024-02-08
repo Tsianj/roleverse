@@ -29,7 +29,11 @@ return (
             {isAuthenticated === false ? (
                 <Link to={"/connexion"} className='btn_accueil'>Rejoignez-nous</Link>
             ):(
-                <Link to={`/profil/${user.UT_Mail}`} className='btn_accueil'>Profil</Link>
+                user && user.UT_Mail ? (
+                    <Link to={{ pathname: `/profil/${user.UT_Mail}`, state: { user } }} className='btn_accueil'>Profil</Link>
+                ) : (
+                    <span>Loading...</span>
+                )
             )} 
             </div>
         </div>

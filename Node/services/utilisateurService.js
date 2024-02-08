@@ -28,9 +28,20 @@ const connUtilisateur = (utilisateur) => {
         });
     });
 }
-
+const modifyUtilisateur = (utilisateur) => {
+    return new Promise((resolve, reject) => {
+      let sql = `UPDATE utilisateur SET UT_Nom = ?, UT_Bio = ?, UT_NiveauMJ = ? , UT_NiveauJoueur = ? WHERE UT_Mail = ?;`
+      let query = conn.query(sql, [utilisateur.UT_Nom, utilisateur.UT_Bio, utilisateur.UT_NiveauMJ, utilisateur.UT_NiveauJoueur, utilisateur.UT_Mail,],
+        (err, result, field) => {
+          if (err) return reject(err);
+          resolve(result);
+        }
+      );
+    });
+  };
 module.exports = {
     fetchUtilisateur, 
     addUtilisateur,
-    connUtilisateur
+    connUtilisateur,
+    modifyUtilisateur
 };

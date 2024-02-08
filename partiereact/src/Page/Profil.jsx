@@ -1,25 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../Styles/Profil.css';
 import profilService from '../Services/utilisateurService'
 import { useParams } from 'react-router-dom';
 
-const Profil = () => {
+const Profil = (props) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [pseudo, setPseudo] = useState([]);
-    const [bio, setBio] = useState([]);
+    const [user, setUser] = useState({});
     const [niveauMJ, setNiveauMJ] = useState(3); // Exemple : niveau initial
     const [niveauJoueur, setNiveauJoueur] = useState(4); // Exemple : niveau initial
     const { email } = useParams();
-    
 
     const handleEditClick = () => {
       setIsEditing(true);
     };
   
-    const handleSaveClick = () => {
-      setIsEditing(false);
-      // Ajoutez ici la logique pour sauvegarder les modifications
-      // (par exemple, en utilisant une fonction pour mettre à jour les données côté serveur)
+    const handleSaveClick = async () => {
+      try {
+        // service pour mettre à jour les informations de l'utilisateur
+        const response = await profilService.updateUtilisateur( {
+          UT_Mail: user.UT_Mail,
+          UT_Nom: user.UT_Nom,
+          UT_Bio: user.UT_Bio,
+          UT_NiveauMJ: user.UT_NiveauMJ,
+          UT_NiveauJoueur: user.UT_NiveauJoueur,
+        });
+        setIsEditing(false);
+      } catch (error) {
+        console.log("Erreur lors de la sauvegarde des modifications :", error);
+      }
     };
     const renderStars = (numStars, filledColor) => {
         const stars = [];
@@ -41,15 +49,14 @@ const Profil = () => {
     const fetchData = async () => {
       try {
         const response = await profilService.fetchUtilisateur(email);
-        console.log(response);
-        setPseudo(response.data[0]);
+        setUser(response.data[0]);
       } catch (error) {
         console.log("Erreur lors de la récupération du pseudo :", error);
       }}
       useEffect(() => {
         fetchData();
       }, []);
-
+      
 
     return (    
 <div className="profil-container">
@@ -63,19 +70,19 @@ const Profil = () => {
               {/* Champs de modification pendant l'édition */}
               <input
                 type="text"
-                value={pseudo.UT_Nom.charAt(0).toUpperCase() + pseudo.UT_Nom.slice(1)}
-                onChange={(e) => setPseudo(e.target.value)}
+                value={(user?.UT_Nom || '').charAt(0).toUpperCase() + (user?.UT_Nom || '').slice(1)}
+                onChange={(e) => setUser({ ...user, UT_Nom: e.target.value })}
               /> <br />
               <textarea
-                value={bio.UT_Description}
-                onChange={(e) => setBio(e.target.value)}
+                value={user.UT_Bio}
+                onChange={(e) => setUser({ ...user, UT_Bio: e.target.value })}
               />
             </>
           ) : (
             <>
               {/* Affichage normal */}
-              <h2>Pseudo : {pseudo.UT_Nom}</h2>
-              <p className="profil-bio">Bio : {bio.UT_Description}</p>
+              <h2>Pseudo : {(user?.UT_Nom || '').charAt(0).toUpperCase() + (user?.UT_Nom || '').slice(1)}</h2>
+              <p className="profil-bio">Bio : {user.UT_Bio}</p>
             </>
           )}
         </div>
@@ -94,14 +101,17 @@ const Profil = () => {
           {isEditing ? (
             <button onClick={handleSaveClick}>Enregistrer</button>
           ) : (
+            
             <span
               role="img"
               aria-label="Modifier"
               className="edit-icon"
               onClick={handleEditClick}
+              title="Modifier"
             >
-              ✏️
+             ✏️
             </span>
+            
           )}
         </div>
       </div>

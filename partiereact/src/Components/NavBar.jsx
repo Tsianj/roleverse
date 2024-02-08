@@ -68,7 +68,7 @@ const NavBar = () => {
                 Auth0.logout(
                   toast.info("A bientôt aventurier", {
                     position: "bottom-right",
-                    autoClose: 5000,
+                    autoClose: 1500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -77,6 +77,9 @@ const NavBar = () => {
                     theme: "colored",
                   })
                 );
+                setTimeout(() => {
+                  window.location.href = "/";
+                }, 1800);
               }}
             >
               Déconnexion

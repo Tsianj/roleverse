@@ -75,7 +75,7 @@ const Connexion = () => {
         toast.success("Bon retour parmi nous " + response.data.user.UT_Nom.charAt(0).toUpperCase()
         + response.data.user.UT_Nom.slice(1), {
           position: "bottom-right",
-          autoClose: 5000,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -83,8 +83,11 @@ const Connexion = () => {
           progress: undefined,
           theme: "colored",
         });
-        navigate("/");
-      }, 800);
+        
+      });
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1800);
     } catch (e) {
       toast.error(e.response.data.message, {
         position: "bottom-right",

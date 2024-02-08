@@ -6,3 +6,6 @@
     font-family: "Lancelot";
     src: url("./assets/Fonts/Lancelot/Lancelot-Regular.ttf") format("truetype");
 }
+*{
+    box-sizing: border-box;
+}
