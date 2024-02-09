@@ -18,16 +18,22 @@
     /* Ajoutez des styles pour l'image du joueur si nécessaire */
   }
   
-  .profil-info h2 {
+  .profil-info .orange {
     margin-bottom: 10px;
     font-size: 5vh;
-    color: #EFE7DA;
+    color: #e55812;
+    font-family: "Pica SC";
+  }
+  .white{
+    color: #efe7da;
+    margin-bottom: 10px;
+    font-size: 5vh;
     font-family: "Pica SC";
   }
   
   .profil-bio, .p-profil {
-    font-size: 16px;
-    color: #EFE7DA;
+    font-size: 20px;
+    color: #e55812;
     font-family: "Pica SC";
   }
   
@@ -45,8 +51,57 @@
     align-items: center;
   }
   
-  .edit-icon {
+  .edit-icon, .delete-icon{
     cursor: pointer;
     font-size: 20px;
     margin-left: 5px;
+    transition: 718ms;
+    transform: translateY(0);
+    border: 0;
+    padding: 2px 4px;
   }
+  .edit-icon:hover, .delete-icon:hover{
+    transition: 718ms;
+    transform: translateY(-8px);
+  }
+.modif-profil > input{
+  border-radius: 5px;
+  padding: 4px;
+  width: 180px;
+}
+.modif-profil > textarea{
+  border-radius: 5px;
+  padding: 4px;
+  height:  150px;
+  width: 300px;
+}
+.valider {
+  width: 8vw;
+  border-radius: 40px;
+  padding: 0.7vh;
+  background-color: rgba(149, 198, 35, 1);
+  color: #000;
+  font-family: "Pica SC";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.50);
+  cursor: pointer;
+  transition: 718ms;
+  transform: translateY(0);
+}
+.valider:hover {
+  background-color: #e55812;
+  color: #efe7da;
+  transition: 718ms;
+  transform: translateY(-8px);
+  box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10);
+}
+.p-texteProfil{
+  font-size: 20px;
+  color: #EFE7DA;
+  font-family: "Lancelot";
+}
