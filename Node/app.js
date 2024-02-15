@@ -3,6 +3,7 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const utilisateur = require("./modules/utilisateur");
 const scenario = require("./modules/scenario");
+const races = require("./modules/races");
 const utilisateurService = require("./services/utilisateurService");
 const app = express();
 const port = 3000;
@@ -73,6 +74,7 @@ app.get("/", checkTokenMiddleware, (req, res) => {
 /* Fin partie token */
 app.use("/utilisateur", utilisateur);
 app.use("/scenario", scenario);
+app.use("/races", races);
 app.post("/connexion", (req, res) => {
   let data = req.body;
   console.log(data);

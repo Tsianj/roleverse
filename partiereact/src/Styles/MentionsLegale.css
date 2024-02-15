@@ -1,0 +1,8 @@
+.titre_ML, .soustitre_ML, .p_ML {
+    color: #EFE7DA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    margin: 5vh 20vw;
+}

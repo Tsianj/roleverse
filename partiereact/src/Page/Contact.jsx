@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../Styles/Contact.css";
 import { toast } from "react-toastify";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Contact = () => {
     sujet: "Choisir un option",
     message: "",
   });
+  const [capVal, setCapVal] = useState(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -121,7 +123,8 @@ const Contact = () => {
           required
         ></textarea>
         <br />
-        <button type="submit" className="btn_contact">
+        <ReCAPTCHA  sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E" onChange={val => setCapVal(val)}/>
+        <button type="submit" className="btn_contact" disabled={!capVal}>
           Envoyer
         </button>
       </form>

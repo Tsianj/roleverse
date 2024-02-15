@@ -1,0 +1,110 @@
+.regles{
+    color: #efe7da;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.regles h1 {
+    text-align: center;
+    font-family: "Pica SC";
+    font-size: 45px;
+    font-weight: 600;
+    margin: 10vh;
+}
+.regles h2 {
+    text-align: center;
+    font-family: "Pica SC";
+    color: rgba(149, 198, 35, 1);
+}
+.regles h3 {
+    margin-left: 40vh;
+    font-family: "Pica SC";
+    color: #e55812;
+}
+.bienvenu, .fiche, .races{
+    max-width: 80vw;
+}
+.regles p {
+    margin: 5vh 30vh;
+    font-family: "Lancelot";
+    font-size: 18px;
+}
+.liste-stats1, .liste-stats2, .liste-stats3{
+    display: flex;
+    justify-content: center;   
+}
+.liste-stats2{
+    margin-left: -15vw;
+}
+.liste-stats1{
+    margin-left: -25vw;
+}
+li b, li{
+    font-family: "Lancelot";
+    font-size: 20px;
+}
+p b {
+    font-family: 'Lancelot';
+}
+
+.card_races{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 15%;
+    margin: 20vh 30vh;
+}
+/* CSS pour les cards */
+.race-container {
+    position: relative;
+    display: inline-block;
+    margin: 30px; /* Ajout de la marge tout autour */
+    transition: transform 0.3s ease-out; /* Ajout de transition */
+    cursor: pointer; /* Curseur pointer au survol de l'image */
+    max-width: 250px; /* Remplacez la valeur par celle que vous souhaitez */
+    max-height: 400px; /* Remplacez la valeur par celle que vous souhaitez */
+    width: 100%; /* Pour s'assurer que la largeur ne dépasse pas la largeur parente si elle est plus petite que max-width */
+    height: auto; /* Pour conserver les proportions de l'image */
+  }
+  .img-races {
+    max-width:100%; 
+    display: block;
+    box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10); /* Ajout de l'ombre */
+  }
+  .race-container:hover {
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+  }
+  .race-container:hover .nom-races  {
+    opacity: 1;/* Lorsque l'utilisateur survole, rend le texte visible */
+}
+.nom-races {
+    position: absolute;
+    top: 0; /* Positionne le texte au milieu verticalement */
+    left: 0; /* Positionne le texte au milieu horizontalement */
+    width: 100%; /* Recouvre toute la largeur de l'image */
+    height: 100%; /* Recouvre toute la hauteur de l'image */
+    opacity: 0; /* Initialement invisible */
+    transition: opacity 0.3s ease-in-out; /* Ajoute une transition de fondu */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    color: #EFE7DA; /* Couleur du texte */
+  }
+
+  .btn_taverne {
+    margin: 5vh;
+    color: #efe7da;
+    font-family: "Pica SC";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    transition: 718ms;
+    transform: translateY(0);
+  }
+  .btn_taverne:hover {
+    color: #e55812;
+    transition: 718ms;
+    transform: translateY(-8px);
+  }

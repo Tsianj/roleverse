@@ -5,6 +5,7 @@ import "../Styles/Connexion.css";
 import utilisateurService from "../Services/utilisateurService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Auth0 = new Auth();
 const Connexion = () => {
@@ -16,7 +17,7 @@ const Connexion = () => {
   const storeToken = (token) => {
     localStorage.setItem('authToken', token);
   };
-
+  const [capVal, setCapVal] = useState(null)
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
     setUtilisateur({ ...utilisateur, [name]: value });
@@ -36,12 +37,11 @@ const Connexion = () => {
             // setUser(Auth0.getUser());
             // setIsAuthenticated(true);
             toast.success(
-              "Bienvenu aventurier, ton compte a bien été créé " +
-              res.data.user.UT_Nom.charAt(0).toUpperCase() +
-              res.data.user.UT_Nom.slice(1),
+              "Bienvenu aventurier " + res.data.user.UT_Nom.charAt(0).toUpperCase() +
+              res.data.user.UT_Nom.slice(1) + ", ton compte a bien été créé. Connecte-toi ! " ,
               {
                 position: "bottom-right",
-                autoClose: 5000,
+                autoClose: 1700,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -50,9 +50,10 @@ const Connexion = () => {
                 theme: "colored",
               }
             );
-          // Recharge la page après l'inscription réussie
-          window.location.reload();
-          }, 800);
+          });
+          setTimeout(() => {
+            window.location.href = "/connexion";
+          }, 2000);
         });
       } catch (e) {
         console.log(e);
@@ -156,7 +157,8 @@ const Connexion = () => {
                 onChange={handleChange}
                 required
               />
-              <button type="submit">S'incrire</button>
+              <ReCAPTCHA  sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E" onChange={val => setCapVal(val)}/>
+              <button type="submit" disabled={!capVal}>S'incrire</button>
             </form>
           </div>
           {/* <!-- Formulaire de connexion --> */}
@@ -180,9 +182,8 @@ const Connexion = () => {
                 onChange={handleChange}
                 required
               />
-              {/* <!-- Lien pour réinitialiser le mot de passe --> */}
-              {/* <a href="#">Mot de passe oublié</a> */}
-              <button type="submit" value="Se connecter" onClick={handleConn}>
+              <ReCAPTCHA  sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E" onChange={val => setCapVal(val)}/>
+              <button type="submit" value="Se connecter" onClick={handleConn} disabled={!capVal}>
                 Se connecter
               </button>
             </form>

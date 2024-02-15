@@ -33,6 +33,7 @@
 .btn_contact{
     border-radius: 20px;
     height: 5.5vh;
+    margin-top: 5px;
     width: 8vw;
     font-size: larger;
     font-family: "Pica SC";
@@ -61,4 +62,34 @@
     border-radius: 20px;
     width: 20vw;
     padding: 5px;
+}
+
+/* Styles pour les écrans de 900px et en dessous */
+@media (max-width: 900px) {
+    .titre_c {
+        font-size: 40px; /* Ajustez la taille de la police selon vos préférences */
+        margin-top: 5vh; /* Ajustez la marge supérieure selon vos préférences */
+    }
+
+    .texte_contact {
+        font-size: 18px; /* Ajustez la taille de la police selon vos préférences */
+        margin-bottom: 1vh; /* Ajustez la marge inférieure selon vos préférences */
+    }
+
+    .formulaire {
+        max-width: 80%; /* Ajustez la largeur maximale selon vos préférences */
+        margin-bottom: 50px; /* Ajustez la marge inférieure selon vos préférences */
+    }
+    .btn_contact {
+        /* Fixe la taille de la police pour empêcher le rétrécissement */
+        font-size: larger;
+        width: 80%;
+    }
+    #nom, #email, #sujet {
+        width: 80%; /* Ajustez la largeur selon vos préférences */
+    }
+
+    #message {
+        width: 80%; /* Ajustez la largeur selon vos préférences */
+    }
 }

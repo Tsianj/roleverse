@@ -3,10 +3,34 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #0e4749;
+  height: 10vh;
 }
 .p_footer {
   font-family: "Pica SC";
   margin-right: 1.5vh; /* 8px */
   color: #e55812;
   font-size: 18px;
+  transform: translateY(8px);
+}
+.link_footer {
+  font-family: "Pica SC";
+  margin-right: 1.5vh; /* 8px */
+  color: #e55812;
+  font-size: 18px;
+  text-decoration: None;
+}
+.link_footer:hover{
+  color: rgba(149, 198, 35, 1);
+  transition: 718ms;
+  transform: translateY(-8px);
+}
+
+
+@media screen and (max-width: 980px) {
+  footer {
+    height: 18vh;
+    width: 100%;
+    flex-direction: column;
+  }
+
 }

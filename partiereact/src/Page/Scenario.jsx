@@ -29,7 +29,7 @@ console.log(scenarios);
                 <p>{scenarios.SC_Description}</p>
         </div>
         <div className='btn_scenar'>
-            <Link to={""} id='btn_game'>Lancer une partie</Link>
+            <Link to={"/regle"} id='btn_game'>Règle du jeu</Link>
             <Link to={"/taverne"} className='btn_retour'>Retour</Link>
         </div>
     </div> );

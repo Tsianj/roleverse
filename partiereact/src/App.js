@@ -15,6 +15,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Scenario from "./Page/Scenario";
 import Profil from "./Page/Profil";
+import MentionsLegale from "./Page/MentionsLegale";
+import Regles from "./Page/Regles";
 
 const Auth0 = new Auth();
 Auth0.setup();
@@ -40,6 +42,8 @@ function App() {
           <Route path={"/taverne"} element={<Taverne />} />
           <Route path={"/scenarios/:id"} element={<Scenario />} />
           <Route path={"/profil/:email"} element={<Profil />} />
+          <Route path={"/regle"} element={<Regles />} />
+          <Route path={"/mentionlegale"} element={<MentionsLegale />}/>
         </Routes>
         <Footer />
         <ToastContainer />

@@ -6,8 +6,8 @@ const Footer = () => {
     return ( 
         <footer>
             <p className='p_footer'>© 2024, Roleverse</p>
-            <p className='p_footer'>Mentions légales</p>
-            <Link to={"/contact"} className='btn_nav'>Contact</Link>
+            <Link to={"/mentionlegale"} className='link_footer'>Mentions légales</Link>
+            <Link to={"/contact"} className='link_footer'>Contact</Link>
         </footer>
      );
 }

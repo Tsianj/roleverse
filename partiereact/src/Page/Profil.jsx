@@ -96,6 +96,7 @@ const Profil = (props) => {
                   setUser({ ...user, UT_NiveauMJ: e.target.value })
                 }
               >
+                <option value=""></option>
                 <option value="Débutant">Débutant</option>
                 <option value="Intermédiaire">Intermédiaire</option>
                 <option value="Expert">Expert</option>
@@ -109,6 +110,7 @@ const Profil = (props) => {
                   setUser({ ...user, UT_NiveauJoueur: e.target.value })
                 }
               >
+                <option value=""></option>
                 <option value="Débutant">Débutant</option>
                 <option value="Intermédiaire">Intermédiaire</option>
                 <option value="Expert">Expert</option>
