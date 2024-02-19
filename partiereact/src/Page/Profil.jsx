@@ -50,7 +50,6 @@ const Profil = (props) => {
       console.log("Erreur lors de la suppression de l'utilisateur :", error);
     }
   };
-
   const fetchData = async () => {
     try {
       const response = await profilService.fetchUtilisateur(email);

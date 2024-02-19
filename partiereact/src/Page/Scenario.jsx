@@ -1,4 +1,4 @@
-import { React, useContext, useEffect, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import "../Styles/Scenario.css";
 import taverneService from "../Services/taverneService";
 import { Link, useParams } from 'react-router-dom';

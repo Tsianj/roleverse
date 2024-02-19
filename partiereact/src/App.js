@@ -17,6 +17,7 @@ import Scenario from "./Page/Scenario";
 import Profil from "./Page/Profil";
 import MentionsLegale from "./Page/MentionsLegale";
 import Regles from "./Page/Regles";
+import Races from "./Page/Races";
 
 const Auth0 = new Auth();
 Auth0.setup();
@@ -44,9 +45,20 @@ function App() {
           <Route path={"/profil/:email"} element={<Profil />} />
           <Route path={"/regle"} element={<Regles />} />
           <Route path={"/mentionlegale"} element={<MentionsLegale />}/>
+          <Route path={"/races/:id"} element={<Races />} />
         </Routes>
         <Footer />
-        <ToastContainer />
+        <ToastContainer 
+          position= "bottom-right"
+          autoClose= {5000}
+          hideProgressBar= {false}
+          closeOnClick= {true}
+          pauseOnHover= {true}
+          draggable= {true}
+          progress= {undefined}
+          pauseOnFocusLoss
+          theme= "colored"
+        />
       </BrowserRouter>
     </AuthContext.Provider>
   );

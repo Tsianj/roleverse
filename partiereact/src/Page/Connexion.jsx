@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha";
 
+
 const Auth0 = new Auth();
 const Connexion = () => {
   const [isActive, setIsActive] = useState(false);
@@ -32,28 +33,17 @@ const Connexion = () => {
             mailConn_uti: utilisateur.mail_uti,
             passwordsConn: utilisateur.passwords,
           });
+          toast.success(
+            "Bienvenu aventurier " + res.data.user.UT_Nom.charAt(0).toUpperCase() +
+            res.data.user.UT_Nom.slice(1) + ", ton compte a bien été créé.");
           setTimeout(async () => {
-            console.log(res);
-            // setUser(Auth0.getUser());
-            // setIsAuthenticated(true);
-            toast.success(
-              "Bienvenu aventurier " + res.data.user.UT_Nom.charAt(0).toUpperCase() +
-              res.data.user.UT_Nom.slice(1) + ", ton compte a bien été créé. Connecte-toi ! " ,
-              {
-                position: "bottom-right",
-                autoClose: 1700,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-              }
-            );
+            setIsAuthenticated(true);
+            navigate("/")
+            setUser(Auth0.getUser());
+            // Stocker le token lors de la connexion réussie
+            storeToken(res.data.access_token);
           });
-          setTimeout(() => {
-            window.location.href = "/connexion";
-          }, 2000);
+
         });
       } catch (e) {
         console.log(e);
@@ -67,39 +57,17 @@ const Connexion = () => {
     e.preventDefault();
     try {
       const response = await utilisateurService.loginUtilisateur(utilisateur);
+      toast.success("Bon retour parmi nous " + response.data.user.UT_Nom.charAt(0).toUpperCase()
+      + response.data.user.UT_Nom.slice(1));
       setTimeout(() => {
-        setUser(Auth0.getUser());
-        console.log(user);
         setIsAuthenticated(true);
+        navigate("/")
+        setUser(Auth0.getUser());
         // Stocker le token lors de la connexion réussie
         storeToken(response.data.access_token);
-        toast.success("Bon retour parmi nous " + response.data.user.UT_Nom.charAt(0).toUpperCase()
-        + response.data.user.UT_Nom.slice(1), {
-          position: "bottom-right",
-          autoClose: 1500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        
       });
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 1800);
     } catch (e) {
-      toast.error(e.response.data.message, {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
+      toast.error(e.response.data.message);
     }
   };
 

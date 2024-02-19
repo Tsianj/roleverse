@@ -52,7 +52,7 @@ const Taverne = () => {
             <img src={prochainement} alt="prochainement" className='en_cours' />
             <img src={prochainement} alt="prochainement" className='en_cours' />
         </div>
-}
+        }
     </div> );
 }
  

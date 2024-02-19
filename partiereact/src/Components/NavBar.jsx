@@ -5,11 +5,13 @@ import AuthContext from "./AuthContext";
 import Auth from "../Services/Auth";
 import { toast } from "react-toastify";
 import MenuBurger from "../assets/icons8-menu-64.png";
+import { useNavigate } from "react-router-dom";
 
 const Auth0 = new Auth();
 const NavBar = () => {
   const [isActive, setIsActive] = useState(false);
   const [isActiveLink, setIsActiveLink] = useState(false);
+  const navigate = useNavigate();
   const { isAuthenticated, setIsAuthenticated, user, setUser } =
     useContext(AuthContext);
   const closeMenu = () => {
@@ -68,20 +70,10 @@ const NavBar = () => {
               onClick={() => {
                 setIsAuthenticated(false);
                 Auth0.logout(
-                  toast.info("A bientôt aventurier", {
-                    position: "bottom-right",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                  })
-                );
+                  toast.info("A bientôt aventurier"));
                 setTimeout(() => {
-                  window.location.href = "/";
-                }, 1800);
+                  navigate("/");
+                });
               }}
             >
               Déconnexion

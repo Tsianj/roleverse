@@ -23,7 +23,7 @@
     font-family: "Pica SC";
     color: #e55812;
 }
-.bienvenu, .fiche, .races{
+.bienvenu, .fiche, .races, .classes{
     max-width: 80vw;
 }
 .regles p {
@@ -49,11 +49,11 @@ p b {
     font-family: 'Lancelot';
 }
 
-.card_races{
+.cards-races{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     height: 15%;
-    margin: 20vh 30vh;
+    margin: 0 25vh 5vh 25vh;
 }
 /* CSS pour les cards */
 .race-container {
@@ -80,7 +80,7 @@ p b {
 }
 .nom-races {
     position: absolute;
-    top: 0; /* Positionne le texte au milieu verticalement */
+    top: 40px; /* Positionne le texte au milieu verticalement */
     left: 0; /* Positionne le texte au milieu horizontalement */
     width: 100%; /* Recouvre toute la largeur de l'image */
     height: 100%; /* Recouvre toute la hauteur de l'image */
