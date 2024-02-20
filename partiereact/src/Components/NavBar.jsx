@@ -18,7 +18,7 @@ const NavBar = () => {
     setIsActiveLink(false);
   };
 
-  console.log(isAuthenticated);
+  console.log(user);
   return (
     <navbar>
       {/* Icône du menu burger pour les écrans plus petits */}

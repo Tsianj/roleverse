@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 function fetchUtilisateur(email) {
-    return axios.get('http://127.0.0.1:3000/utilisateur/' + email);
+    return axios.get(`http://127.0.0.1:3000/utilisateur/${email}`);
 }
 
 function addUtilisateur(utilisateur){

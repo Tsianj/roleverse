@@ -11,12 +11,15 @@ const Profil = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [user, setUser] = useState({});
   const { email } = useParams();
+  console.log('email', email);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleEditClick = () => {
     setIsEditing(true);
   };
+  console.log(user);
+  console.log("je suis email" + email);
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
   const handleSaveClick = async () => {
     try {
@@ -53,6 +56,7 @@ const Profil = (props) => {
   const fetchData = async () => {
     try {
       const response = await profilService.fetchUtilisateur(email);
+      console.log(response);
       setUser(response.data[0]);
     } catch (error) {
       console.log("Erreur lors de la récupération du pseudo :", error);
@@ -62,6 +66,7 @@ const Profil = (props) => {
     fetchData();
   }, []);
 
+  if(user != {}) {
   return (
     <div className="profil-container">
       <div className="profil-card">
@@ -124,7 +129,7 @@ const Profil = (props) => {
                   (user?.UT_Nom || "").slice(1)}
               </h2>
               <p className="profil-bio">Bio : </p>
-              <p className="p-texteProfil">{user.UT_Bio}</p>
+              <p className="p-texteProfil">{user?.UT_Bio}</p>
               {/* Niveaux MJ et joueur */}
               <div className="profil-niveaux">
                 <div>
@@ -189,6 +194,6 @@ const Profil = (props) => {
       </div>
     </div>
   );
-};
+};}
 
 export default Profil;

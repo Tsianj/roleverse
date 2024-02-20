@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha";
 
-
 const Auth0 = new Auth();
 const Connexion = () => {
   const [isActive, setIsActive] = useState(false);
@@ -16,9 +15,9 @@ const Connexion = () => {
   const { setUser, setIsAuthenticated, user } = useContext(AuthContext);
   // Fonction pour stocker le token dans le stockage local
   const storeToken = (token) => {
-    localStorage.setItem('authToken', token);
+    localStorage.setItem("authToken", token);
   };
-  const [capVal, setCapVal] = useState(null)
+  const [capVal, setCapVal] = useState(null);
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
     setUtilisateur({ ...utilisateur, [name]: value });
@@ -34,16 +33,16 @@ const Connexion = () => {
             passwordsConn: utilisateur.passwords,
           });
           toast.success(
-            "Bienvenu aventurier " + res.data.user.UT_Nom.charAt(0).toUpperCase() +
-            res.data.user.UT_Nom.slice(1) + ", ton compte a bien été créé.");
-          setTimeout(async () => {
+            "Bienvenu aventurier " +
+              res.data.user.UT_Nom.charAt(0).toUpperCase() +
+              res.data.user.UT_Nom.slice(1) +
+              ", ton compte a bien été créé."
+          );
             setIsAuthenticated(true);
-            navigate("/")
-            setUser(Auth0.getUser());
+            navigate("/");
+            setUser(res.data.user);
             // Stocker le token lors de la connexion réussie
             storeToken(res.data.access_token);
-          });
-
         });
       } catch (e) {
         console.log(e);
@@ -56,15 +55,17 @@ const Connexion = () => {
   const handleConn = async (e) => {
     e.preventDefault();
     try {
-      const response = await utilisateurService.loginUtilisateur(utilisateur);
-      toast.success("Bon retour parmi nous " + response.data.user.UT_Nom.charAt(0).toUpperCase()
-      + response.data.user.UT_Nom.slice(1));
-      setTimeout(() => {
+      await utilisateurService.loginUtilisateur(utilisateur).then((resp) => {
+        toast.success(
+          `Bon retour parmi nous ${resp.data.user.UT_Nom.charAt(
+            0
+          ).toUpperCase()} ${resp.data.user.UT_Nom.slice(1)}`
+        );
         setIsAuthenticated(true);
-        navigate("/")
-        setUser(Auth0.getUser());
+        navigate("/");
+        setUser(resp.data.user);
         // Stocker le token lors de la connexion réussie
-        storeToken(response.data.access_token);
+        storeToken(resp.data.access_token);
       });
     } catch (e) {
       toast.error(e.response.data.message);
@@ -73,7 +74,7 @@ const Connexion = () => {
 
   useEffect(() => {
     // Vérifier la présence d'un token au chargement de la page
-    const storedToken = localStorage.getItem('authToken');
+    const storedToken = localStorage.getItem("authToken");
     if (storedToken) {
       // Si un token est trouvé, définissez l'utilisateur et l'authentification
       setUser(Auth0.getUser());
@@ -125,8 +126,13 @@ const Connexion = () => {
                 onChange={handleChange}
                 required
               />
-              <ReCAPTCHA  sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E" onChange={val => setCapVal(val)}/>
-              <button type="submit" disabled={!capVal}>S'incrire</button>
+              <ReCAPTCHA
+                sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E"
+                onChange={(val) => setCapVal(val)}
+              />
+              <button type="submit" disabled={!capVal}>
+                S'incrire
+              </button>
             </form>
           </div>
           {/* <!-- Formulaire de connexion --> */}
@@ -150,8 +156,16 @@ const Connexion = () => {
                 onChange={handleChange}
                 required
               />
-              <ReCAPTCHA  sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E" onChange={val => setCapVal(val)}/>
-              <button type="submit" value="Se connecter" onClick={handleConn} disabled={!capVal}>
+              <ReCAPTCHA
+                sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E"
+                onChange={(val) => setCapVal(val)}
+              />
+              <button
+                type="submit"
+                value="Se connecter"
+                onClick={handleConn}
+                disabled={!capVal}
+              >
                 Se connecter
               </button>
             </form>
