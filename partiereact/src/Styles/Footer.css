@@ -12,14 +12,17 @@ footer {
   font-size: 18px;
   transform: translateY(8px);
 }
-.link_footer {
+.a_link{
+  width: 220px !important;
+}
+.link_footer, .a_link{
   font-family: "Pica SC";
   margin-right: 1.5vh; /* 8px */
   color: #e55812;
   font-size: 18px;
   text-decoration: None;
 }
-.link_footer:hover{
+.link_footer:hover, .a_link:hover{
   color: rgba(149, 198, 35, 1);
   transition: 718ms;
   transform: translateY(-8px);

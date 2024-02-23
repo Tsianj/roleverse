@@ -181,20 +181,20 @@ span {
   box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10);
 }
 
-/* Ajoutez une media query pour les écrans de 980px ou moins */
+/* Ajout une media query pour les écrans de 980px ou moins */
 @media screen and (max-width: 980px) {
-  /* Ajustez le style du header pour les écrans plus petits */
+  /* Ajust le style du header pour les écrans plus petits */
   .header {
     height: auto;
   }
   .header::before {
-    opacity: 0.5; /* Vous pouvez ajuster l'opacité selon vos préférences */
+    opacity: 0.5; /* ajuste l'opacité */
   }
   .dice{
     width: 80%;
   }
 
-  /* Ajustez le style des blocs pour les écrans plus petits */
+  /* Ajust le style des blocs pour les écrans plus petits */
   .bienvenue, .question, .taverne {
     margin-top: 15px;
   }
@@ -210,12 +210,7 @@ span {
     border-radius: 0;
     width: auto;
   }
-  .p1, .p2, .p3 {
-    /* font-size: 20px; */
-    width: 100%;
-  }
-  span{
-    /* font-size: 20px; */
+  .p1, .p2, .p3, span {
     width: 100%;
   }
   .btn_accueil {
