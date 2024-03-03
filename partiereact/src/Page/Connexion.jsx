@@ -57,9 +57,7 @@ const Connexion = () => {
     try {
       await utilisateurService.loginUtilisateur(utilisateur).then((resp) => {
         toast.success(
-          `Bon retour parmi nous ${resp.data.user.UT_Nom.charAt(
-            0
-          ).toUpperCase()} ${resp.data.user.UT_Nom.slice(1)}`
+          `Bon retour parmi nous ${resp.data.user.UT_Nom.charAt(0).toUpperCase()} ${resp.data.user.UT_Nom.slice(1)}`
         );
         setIsAuthenticated(true);
         navigate("/");
@@ -108,6 +106,8 @@ const Connexion = () => {
                 placeholder="Adresse mail"
                 value={utilisateur.mail_uti}
                 onChange={handleChange}
+                pattern=".+@example.com" 
+                size="30"
                 required
               />
               <input
@@ -146,6 +146,8 @@ const Connexion = () => {
                 placeholder="Adresse mail"
                 value={utilisateur.mailConn_uti}
                 onChange={handleChange}
+                pattern=".+@example.com" 
+                size="30"
                 required
               />
               <input

@@ -24,7 +24,9 @@ const Taverne = () => {
       fetchData();
     }, []);
 
-    return ( <div  className='taverne'>
+    return ( 
+    <div className='body'>
+      <div  className='taverne'>
         <div className='tav'>
             <p className='titre_tav'>Taverne</p>
             <p className='para_tav'>
@@ -53,6 +55,7 @@ const Taverne = () => {
             <img src={prochainement} alt="prochainement" className='en_cours' />
         </div>
         }
+      </div>
     </div> );
 }
  

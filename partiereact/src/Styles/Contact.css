@@ -65,7 +65,7 @@
 }
 
 /* Styles pour les écrans de 900px et en dessous */
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
     .titre_c {
         font-size: 40px; /* Ajustez la taille de la police selon vos préférences */
         margin-top: 5vh; /* Ajustez la marge supérieure selon vos préférences */

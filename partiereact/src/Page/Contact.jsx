@@ -59,75 +59,79 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact">
-      <div className="titre_contact">
-        <p className="titre_c">Nous Contacter</p>
-        <br />
-        <p className="texte_contact">
-          Une question? Un problème rencontré ? Ou même une suggestion? N’hésite
-          pas a nous envoyer un message.
-        </p>
-      </div>
-      <form
-        action="#"
-        method="post"
-        className="formulaire"
-        onSubmit={handleSubmit}
-      >
-        <label for="nom">Nom : </label>
-        <input
-          type="text"
-          name="nom"
-          id="nom"
-          value={formData.nom}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label for="email">Email : </label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <label for="sujet">Sujet : </label>
-        <select
-          name="sujet"
-          id="sujet"
-          value={formData.sujet}
-          onChange={handleChange}
-          required
+    <div className="body">
+      <div className="contact">
+        <div className="titre_contact">
+          <p className="titre_c">Nous Contacter</p>
+          <br />
+          <p className="texte_contact">
+            Une question? Un problème rencontré ? Ou même une suggestion? N’hésite
+            pas a nous envoyer un message.
+          </p>
+        </div>
+        <form
+          action="#"
+          method="post"
+          className="formulaire"
+          onSubmit={handleSubmit}
         >
-          <option value="Choisir un option" selected disabled>
-            Choisir un option :
-          </option>
-          <option value="Demande de renseignements">
-            Demande de renseignements
-          </option>
-          <option value="Rapport de bug">Rapport de bug</option>
-          <option value="Suggestion">Suggestion</option>
-        </select>
-        <br />
-        <label htmlFor="message">Message : </label>
-        <br />
-        <textarea
-          name="message"
-          id="message"
-          rows="5"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        ></textarea>
-        <br />
-        <ReCAPTCHA  sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E" onChange={val => setCapVal(val)}/>
-        <button type="submit" className="btn_contact" disabled={!capVal}>
-          Envoyer
-        </button>
-      </form>
+          <label for="nom">Nom : </label>
+          <input
+            type="text"
+            name="nom"
+            id="nom"
+            value={formData.nom}
+            onChange={handleChange}
+            required
+          />
+          <br />
+          <label for="email">Email : </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+            pattern=".+@example.com" 
+            size="30"
+            required
+          />
+          <br />
+          <label for="sujet">Sujet : </label>
+          <select
+            name="sujet"
+            id="sujet"
+            value={formData.sujet}
+            onChange={handleChange}
+            required
+          >
+            <option value="Choisir un option" selected disabled>
+              Choisir un option :
+            </option>
+            <option value="Demande de renseignements">
+              Demande de renseignements
+            </option>
+            <option value="Rapport de bug">Rapport de bug</option>
+            <option value="Suggestion">Suggestion</option>
+          </select>
+          <br />
+          <label htmlFor="message">Message : </label>
+          <br />
+          <textarea
+            name="message"
+            id="message"
+            rows="5"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          ></textarea>
+          <br />
+          <ReCAPTCHA  sitekey="6Ledr3MpAAAAAEsddoaIGdvPx5fvQQSf2huUzj8E" onChange={val => setCapVal(val)}/>
+          <button type="submit" className="btn_contact" disabled={!capVal}>
+            Envoyer
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
