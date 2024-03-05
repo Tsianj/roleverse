@@ -59,7 +59,6 @@ const Contact = () => {
   };
 
   return (
-    <div className="body">
       <div className="contact">
         <div className="titre_contact">
           <p className="titre_c">Nous Contacter</p>
@@ -132,7 +131,6 @@ const Contact = () => {
           </button>
         </form>
       </div>
-    </div>
   );
 };
 

@@ -23,7 +23,7 @@
     align-items: center;
     flex-direction: column;
     background-color: #EFE7DA;
-    max-width: 30%;
+    max-width: 40%;
     margin: auto auto 100px auto;
     border-radius: 40px;
     padding: 20px;
@@ -54,13 +54,13 @@
 }
 #nom, #email, #sujet{
     border-radius: 20px;
-    width: 13vw;
+    width: 20vw;
     height: 5vh;
     padding: 5px;
 }
 #message{
     border-radius: 20px;
-    width: 20vw;
+    width: 30vw;
     padding: 5px;
 }
 
