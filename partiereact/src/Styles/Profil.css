@@ -39,10 +39,12 @@
   
   .profil-niveaux {
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
   }
   
   .profil-niveaux div {
-    margin-bottom: 10px;
+    margin: auto;
   }
   
   .profil-edit {
@@ -104,4 +106,17 @@
   font-size: 20px;
   color: #EFE7DA;
   font-family: "Lancelot";
+}
+.profil-haut{
+  display: flex;
+}
+.nom-bio{
+  margin-left: 30px;
+}
+.niveau{
+  display: flex;
+  flex-direction: row;
+}
+select{
+  margin: 0 20px;
 }

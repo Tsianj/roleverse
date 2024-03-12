@@ -112,10 +112,10 @@ const Regles = () => {
             </Link>
             ))}
             </div>
-            <div className='classes'>
+            {/* <div className='classes'>
                 <h2>Les Classes jouables</h2>
                 <p>Maîtrisez des compétences exceptionnelles en sélectionnant l'une des classes jouables. Que vous soyez un puissant Mage invoquant la magie, un agile Assassin se faufilant dans l'ombre, ou un Chevalier intrépide défendant l'honneur, les possibilités sont infinies.</p>
-            </div>
+            </div> */}
             <Link to={"/taverne"} className='btn_taverne'>Taverne</Link>
         </div>
      );

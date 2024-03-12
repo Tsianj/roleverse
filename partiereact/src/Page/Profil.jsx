@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import AuthContext from "../Components/AuthContext";
+import imgProfil from "../assets/Profil.jpg"
 
 const Profil = (props) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -70,7 +71,7 @@ const Profil = (props) => {
   return (
     <div className="profil-container">
       <div className="profil-card">
-        <div className="profil-image">{/* Image du joueur */}</div>
+        
         <div className="profil-info">
           {isEditing ? (
             <div className="modif-profil">
@@ -93,6 +94,7 @@ const Profil = (props) => {
               />
               <br />
               <br />
+              <div className="niveau">
               <p className="p-profil">Niveau MJ :</p>
               <select
                 value={user.UT_NiveauMJ}
@@ -119,17 +121,23 @@ const Profil = (props) => {
                 <option value="Intermédiaire">Intermédiaire</option>
                 <option value="Expert">Expert</option>
               </select>
+              </div>
             </div>
           ) : (
             <>
               {/* Affichage normal */}
-              <h2 className="orange">Pseudo : </h2>
-              <h2 className="white">
-                {(user?.UT_Nom || "").charAt(0).toUpperCase() +
-                  (user?.UT_Nom || "").slice(1)}
-              </h2>
-              <p className="profil-bio">Bio : </p>
-              <p className="p-texteProfil">{user?.UT_Bio}</p>
+              <div className="profil-haut">
+                <div className="profil-image"><img src={imgProfil} alt="image profil" /></div>
+                <div className="nom-bio">
+                  <h2 className="orange">Pseudo : </h2>
+                  <h2 className="white">
+                    {(user?.UT_Nom || "").charAt(0).toUpperCase() +
+                      (user?.UT_Nom || "").slice(1)}
+                  </h2>
+                  <p className="profil-bio">Bio : </p>
+                  <p className="p-texteProfil">{user?.UT_Bio}</p>
+                </div>
+              </div>
               {/* Niveaux MJ et joueur */}
               <div className="profil-niveaux">
                 <div>
