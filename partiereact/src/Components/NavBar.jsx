@@ -20,7 +20,7 @@ const NavBar = () => {
 
   console.log(user);
   return (
-    <navbar>
+    <>
       {/* Icône du menu burger pour les écrans plus petits */}
       <img
         src={MenuBurger}
@@ -81,7 +81,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
-    </navbar>
+    </>
   );
 };
 

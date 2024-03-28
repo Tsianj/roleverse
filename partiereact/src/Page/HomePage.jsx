@@ -22,7 +22,7 @@ return (
                     <img src={jdr} alt="image jdr" className='img1'/>
                 </div>
                 <div className='texte1'>
-                    <p className='p1'>Tu souhaites partir à l’aventure avec tes amis ? <span>Rejoins la communauté</span> et part à la recherche de trésors !</p>
+                    <p className='p1'>Tu souhaites partir à l’aventure avec tes amis ? <span>Rejoins la communauté</span> et part à la recherche de trésors!</p>
                 </div>
             </div>
             <div className='btn'>

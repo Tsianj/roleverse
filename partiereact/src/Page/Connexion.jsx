@@ -131,7 +131,7 @@ const Connexion = () => {
                 onChange={(val) => setCapVal(val)}
               />
               <button type="submit" disabled={!capVal}>
-                S'incrire
+                S'inscrire
               </button>
             </form>
           </div>

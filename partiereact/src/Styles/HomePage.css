@@ -201,13 +201,14 @@ span {
   .bloc, .bloc2, .bloc3 {
     flex-direction: column;
     align-items: center;
-
   }
   .img1, .img2, .img3 {
     width: 80vw;
+    max-height: 40vh;
   }
   .texte1, .texte2, .texte3 {
     width: 80vw;
+    max-height: 40vh;
   }
   .texte1, .texte3, .img2 {
     border-radius: 0 0 40px 40px;
@@ -217,6 +218,7 @@ span {
   }
   .p1, .p2, .p3, span {
     width: 70%;
+    font-size: 7vw;
   }
   .btn_accueil {
     width: 28%;
