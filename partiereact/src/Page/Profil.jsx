@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/Profil.css";
 import profilService from "../Services/utilisateurService";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import AuthContext from "../Components/AuthContext";
@@ -11,16 +11,13 @@ import imgProfil from "../assets/Profil.jpg"
 const Profil = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [user, setUser] = useState({});
-  const { email } = useParams();
-  console.log('email', email);
+  const location = useLocation();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleEditClick = () => {
     setIsEditing(true);
   };
-  console.log(user);
-  console.log("je suis email" + email);
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
   const handleSaveClick = async () => {
     try {
@@ -56,7 +53,7 @@ const Profil = (props) => {
   };
   const fetchData = async () => {
     try {
-      const response = await profilService.fetchUtilisateur(email);
+      const response = await profilService.fetchUtilisateur(location.state.email);
       console.log(response);
       setUser(response.data[0]);
     } catch (error) {
@@ -135,7 +132,7 @@ const Profil = (props) => {
                       (user?.UT_Nom || "").slice(1)}
                   </h2>
                   <p className="profil-bio">Bio : </p>
-                  <p className="p-texteProfil">{user?.UT_Bio}</p>
+                  <p className="p-texteProfilBio">{user?.UT_Bio}</p>
                 </div>
               </div>
               {/* Niveaux MJ et joueur */}

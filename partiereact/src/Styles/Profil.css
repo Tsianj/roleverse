@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
   }
   
   .profil-card {
@@ -11,11 +10,7 @@
     border-radius: 8px;
     padding: 20px;
     width: 50vw;
-  }
-
-  .profil-image {
-    margin-bottom: 20px;
-    /* Ajoutez des styles pour l'image du joueur si nécessaire */
+    margin: 5vh auto;
   }
   
   .profil-info .orange {
@@ -101,6 +96,14 @@
   transition: 718ms;
   transform: translateY(-8px);
   box-shadow: 5px 5px 15px 5px rgba(239, 231, 218, 0.10);
+}
+.p-texteProfilBio{
+  font-size: 20px;
+  color: #EFE7DA;
+  font-family: "Lancelot";
+  overflow-y:auto;
+  scrollbar-width: thin;
+  max-height: 180px;
 }
 .p-texteProfil{
   font-size: 20px;

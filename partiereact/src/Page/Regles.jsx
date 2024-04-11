@@ -101,14 +101,14 @@ const Regles = () => {
                 <p>Choisissez parmi une variété de races jouables, chacune avec ses propres caractéristiques distinctives. De nobles Elfes aux robustes Nains, en passant par les mystérieux Hommes-Lézards, votre aventure commence avec le choix de votre race.</p>
             </div>
             <div className='cards-races'>
-            {races.map((races) => (
-            <Link to={`/races/${races.RA_ID}`} key={races.RA_ID} className="race-container">
+            {races.map((race, index) => (
+            <Link to={`/races/${race.RA_ID}`} key={race.RA_ID || index} className="race-container">
               <img
-                src={"../Assets/" + races.RA_Img}
-                alt={`image race ${races.RA_Nom}`}
+                src={"../Assets/" + race.RA_Img}
+                alt={`image race ${race.RA_Nom}`}
                 className="img-races"
               />
-            <span className="nom-races">{races.RA_Nom}</span>
+            <span className="nom-races">{race.RA_Nom}</span>
             </Link>
             ))}
             </div>
