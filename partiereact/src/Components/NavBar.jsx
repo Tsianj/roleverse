@@ -51,9 +51,10 @@ const NavBar = () => {
             <></>
           ) : (
             <Link
-              to={`/profil/${user?.UT_Mail}`}
+              to={`/profil`}
               className="btn_nav"
               onClick={closeMenu}
+              state={{email : user?.UT_Mail }}
             >
               Profil
             </Link>

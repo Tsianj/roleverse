@@ -42,7 +42,7 @@ function App() {
           <Route path={"/connexion"} element={<Connexion />} />
           <Route path={"/taverne"} element={<Taverne />} />
           <Route path={"/scenarios/:id"} element={<Scenario />} />
-          <Route path={"/profil/:email"} element={<Profil />} />
+          <Route path={"/profil"} element={<Profil />} />
           <Route path={"/regle"} element={<Regles />} />
           <Route path={"/mentionlegale"} element={<MentionsLegale />}/>
           <Route path={"/races/:id"} element={<Races />} />
