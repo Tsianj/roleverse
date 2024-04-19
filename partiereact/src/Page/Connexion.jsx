@@ -106,8 +106,7 @@ const Connexion = () => {
                 placeholder="Adresse mail"
                 value={utilisateur.mail_uti}
                 onChange={handleChange}
-                // pattern=".+@example.com" 
-                // size="30"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                 required
               />
               <input
@@ -146,8 +145,7 @@ const Connexion = () => {
                 placeholder="Adresse mail"
                 value={utilisateur.mailConn_uti}
                 onChange={handleChange}
-                // pattern=".+@example.com" 
-                // size="30"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                 required
               />
               <input

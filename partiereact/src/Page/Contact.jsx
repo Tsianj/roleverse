@@ -91,8 +91,7 @@ const Contact = () => {
             id="email"
             value={formData.email}
             onChange={handleChange}
-            pattern=".+@example.com" 
-            size="30"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
             required
           />
           <br />
